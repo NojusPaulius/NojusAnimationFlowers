@@ -1,0 +1,440 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  position: relative;
+  height: 100vh;
+  background-color: rgb(0, 0, 0);
+  animation: backgroundColor 10s forwards;
+}
+@keyframes backgroundColor {
+  100% {
+    background-color: aqua;
+  }
+}
+
+.sun {
+  position: absolute;
+  border-radius: 90px;
+  width: 150px;
+  height: 150px;
+  top: 300px;
+  left: -200px;
+  background-color: yellow;
+  animation: sunRise 3s forwards linear, sunPulse 3s infinite;
+}
+@keyframes sunPulse {
+  50% {
+    transform: scale(1.1, 1.1);
+  }
+}
+@keyframes sunRise {
+  50% {
+    top: 100px;
+    left: 0;
+  }
+  100% {
+    top: 50px;
+    left: 80px;
+  }
+}
+
+.flower-right {
+  position: absolute;
+  height: 600px;
+  width: 200px;
+  bottom: 0;
+  right: 15%;
+  display: flex;
+  flex-direction: column-reverse;
+}
+.flower-right__stem {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  height: 500px;
+}
+.flower-right__stem-stem {
+  position: absolute;
+  background-color: green;
+  height: 0px;
+  bottom: 0;
+  width: 25px;
+  animation: flowerGrowRight 5s forwards;
+}
+@keyframes flowerGrowRight {
+  100% {
+    height: 500px;
+  }
+}
+.flower-right__stem-leaf {
+  position: absolute;
+  height: 25px;
+  width: 50px;
+  border-radius: 90px 0;
+  opacity: 0;
+  right: 38px;
+  top: 35%;
+  background-color: green;
+  animation: flowerOpacity 3s forwards;
+  animation-delay: 3s;
+}
+.flower-right__head {
+  height: 50px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  opacity: 0;
+  animation: flowerOpacity 1s forwards, flowerMoving 3s infinite;
+  animation-delay: 5s;
+}
+@keyframes flowerOpacity {
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes flowerMoving {
+  50% {
+    transform: rotate(0, 5);
+  }
+}
+.flower-right__head-center {
+  position: absolute;
+  height: 80px;
+  width: 80px;
+  border-radius: 90px;
+  transform: translateY(10px);
+  background-color: yellow;
+  border: 1px solid rgb(75, 74, 19);
+  z-index: 2;
+}
+.flower-right__head-first-petal {
+  position: absolute;
+  height: 80px;
+  width: 120px;
+  border-radius: 90px 0px;
+  background: linear-gradient(to bottom, #fffdef, #c50000);
+  border: 2px groove rgb(199, 127, 127);
+  transform: translate(50px, -25px) rotate(0deg);
+}
+.flower-right__head-second-petal {
+  position: absolute;
+  height: 80px;
+  width: 120px;
+  border-radius: 90px 0px;
+  background: linear-gradient(to bottom, #fffdef, #c50000);
+  border: 2px groove rgb(199, 127, 127);
+  transform: translate(-50px, -25px) rotate(60deg);
+}
+.flower-right__head-third-petal {
+  position: absolute;
+  height: 80px;
+  width: 120px;
+  border-radius: 90px 0px;
+  background: linear-gradient(to bottom, #fffdef, #c50000);
+  border: 2px groove rgb(199, 127, 127);
+  transform: translate(0px, -50px) rotate(120deg);
+}
+.flower-right__head-fourth-petal {
+  position: absolute;
+  height: 80px;
+  width: 120px;
+  border-radius: 90px 0px;
+  background: linear-gradient(to bottom, #fffdef, #c50000);
+  border: 2px groove rgb(199, 127, 127);
+  transform: translate(-50px, 40px) rotate(180deg);
+}
+.flower-right__head-fifth-petal {
+  position: absolute;
+  height: 80px;
+  width: 120px;
+  border-radius: 90px 0px;
+  background: linear-gradient(to bottom, #fffdef, #c50000);
+  border: 2px groove rgb(199, 127, 127);
+  transform: translate(50px, 40px) rotate(240deg);
+}
+.flower-right__head-sixth-petal {
+  position: absolute;
+  height: 80px;
+  width: 120px;
+  border-radius: 90px 0px;
+  background: linear-gradient(to bottom, #fffdef, #c50000);
+  border: 2px groove rgb(199, 127, 127);
+  transform: translate(0px, 50px) rotate(300deg);
+}
+
+.flower-center {
+  position: absolute;
+  height: 400px;
+  width: 200px;
+  bottom: 0;
+  right: 50%;
+  display: flex;
+  flex-direction: column-reverse;
+}
+.flower-center__stem {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  height: 350px;
+}
+.flower-center__stem-stem {
+  position: absolute;
+  background-color: green;
+  height: 0px;
+  bottom: 0;
+  width: 25px;
+  animation: flowerGrowCenter 5s forwards;
+}
+@keyframes flowerGrowCenter {
+  100% {
+    height: 350px;
+  }
+}
+.flower-center__stem-leaf {
+  position: absolute;
+  height: 25px;
+  width: 50px;
+  border-radius: 90px 0;
+  opacity: 0;
+  right: 38px;
+  top: 35%;
+  background-color: green;
+  animation: flowerOpacity 3s forwards;
+  animation-delay: 3s;
+}
+.flower-center__head {
+  height: 50px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  opacity: 0;
+  animation: flowerOpacity 1s forwards, flowerMoving 3s infinite;
+  animation-delay: 5s;
+}
+@keyframes flowerOpacity {
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes flowerMoving {
+  50% {
+    transform: rotate(0, 5);
+  }
+}
+.flower-center__head-center {
+  position: absolute;
+  height: 80px;
+  width: 80px;
+  border-radius: 90px;
+  transform: translateY(10px);
+  background-color: yellow;
+  border: 1px solid rgb(75, 74, 19);
+  z-index: 2;
+}
+.flower-center__head-first-petal {
+  position: absolute;
+  height: 80px;
+  width: 120px;
+  border-radius: 90px 0px;
+  background: linear-gradient(to bottom, #5e227f, #d9b26e);
+  border: 2px groove rgb(199, 127, 127);
+  transform: translate(50px, -25px) rotate(0deg);
+}
+.flower-center__head-second-petal {
+  position: absolute;
+  height: 80px;
+  width: 120px;
+  border-radius: 90px 0px;
+  background: linear-gradient(to bottom, #5e227f, #d9b26e);
+  border: 2px groove rgb(199, 127, 127);
+  transform: translate(-50px, -25px) rotate(60deg);
+}
+.flower-center__head-third-petal {
+  position: absolute;
+  height: 80px;
+  width: 120px;
+  border-radius: 90px 0px;
+  background: linear-gradient(to bottom, #5e227f, #d9b26e);
+  border: 2px groove rgb(199, 127, 127);
+  transform: translate(0px, -50px) rotate(120deg);
+}
+.flower-center__head-fourth-petal {
+  position: absolute;
+  height: 80px;
+  width: 120px;
+  border-radius: 90px 0px;
+  background: linear-gradient(to bottom, #5e227f, #d9b26e);
+  border: 2px groove rgb(199, 127, 127);
+  transform: translate(-50px, 40px) rotate(180deg);
+}
+.flower-center__head-fifth-petal {
+  position: absolute;
+  height: 80px;
+  width: 120px;
+  border-radius: 90px 0px;
+  background: linear-gradient(to bottom, #5e227f, #d9b26e);
+  border: 2px groove rgb(199, 127, 127);
+  transform: translate(50px, 40px) rotate(240deg);
+}
+.flower-center__head-sixth-petal {
+  position: absolute;
+  height: 80px;
+  width: 120px;
+  border-radius: 90px 0px;
+  background: linear-gradient(to bottom, #5e227f, #d9b26e);
+  border: 2px groove rgb(199, 127, 127);
+  transform: translate(0px, 50px) rotate(300deg);
+}
+
+.flower-left {
+  position: absolute;
+  height: 400px;
+  width: 200px;
+  bottom: 0;
+  right: 75%;
+  display: flex;
+  flex-direction: column-reverse;
+}
+.flower-left__stem {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  height: 300px;
+}
+.flower-left__stem-stem {
+  position: absolute;
+  background-color: green;
+  height: 0px;
+  bottom: 0;
+  width: 25px;
+  animation: flowerGrowLeft 5s forwards;
+}
+@keyframes flowerGrowLeft {
+  100% {
+    height: 250px;
+  }
+}
+.flower-left__stem-leaf {
+  position: absolute;
+  height: 25px;
+  width: 50px;
+  border-radius: 90px 0;
+  opacity: 0;
+  right: 38px;
+  top: 35%;
+  background-color: green;
+  animation: flowerOpacity 3s forwards;
+  animation-delay: 3s;
+  transform: rotateX(180deg) translate(-70px);
+}
+.flower-left__head {
+  height: 50px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  opacity: 0;
+  animation: flowerOpacity 1s forwards, flowerMoving 3s infinite;
+  animation-delay: 5s;
+}
+@keyframes flowerOpacity {
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes flowerMoving {
+  50% {
+    transform: rotate(0, 5);
+  }
+}
+.flower-left__head-center {
+  position: absolute;
+  height: 80px;
+  width: 80px;
+  border-radius: 90px;
+  transform: translateY(10px);
+  background-color: yellow;
+  border: 1px solid rgb(75, 74, 19);
+  z-index: 2;
+}
+.flower-left__head-first-petal {
+  position: absolute;
+  height: 80px;
+  width: 120px;
+  border-radius: 90px 0px;
+  background: linear-gradient(to bottom, #20716a, #cbf078);
+  border: 2px groove rgb(199, 127, 127);
+  transform: translate(50px, -25px) rotate(0deg);
+}
+.flower-left__head-second-petal {
+  position: absolute;
+  height: 80px;
+  width: 120px;
+  border-radius: 90px 0px;
+  background: linear-gradient(to bottom, #20716a, #cbf078);
+  border: 2px groove rgb(199, 127, 127);
+  transform: translate(-50px, -25px) rotate(60deg);
+}
+.flower-left__head-third-petal {
+  position: absolute;
+  height: 80px;
+  width: 120px;
+  border-radius: 90px 0px;
+  background: linear-gradient(to bottom, #20716a, #cbf078);
+  border: 2px groove rgb(199, 127, 127);
+  transform: translate(0px, -50px) rotate(120deg);
+}
+.flower-left__head-fourth-petal {
+  position: absolute;
+  height: 80px;
+  width: 120px;
+  border-radius: 90px 0px;
+  background: linear-gradient(to bottom, #20716a, #cbf078);
+  border: 2px groove rgb(199, 127, 127);
+  transform: translate(-50px, 40px) rotate(180deg);
+}
+.flower-left__head-fifth-petal {
+  position: absolute;
+  height: 80px;
+  width: 120px;
+  border-radius: 90px 0px;
+  background: linear-gradient(to bottom, #20716a, #cbf078);
+  border: 2px groove rgb(199, 127, 127);
+  transform: translate(50px, 40px) rotate(240deg);
+}
+.flower-left__head-sixth-petal {
+  position: absolute;
+  height: 80px;
+  width: 120px;
+  border-radius: 90px 0px;
+  background: linear-gradient(to bottom, #20716a, #cbf078);
+  border: 2px groove rgb(199, 127, 127);
+  transform: translate(0px, 50px) rotate(300deg);
+}
+
+.text-container {
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: textTransform 4s forwards 7s;
+}
+@keyframes textTransform {
+  50% {
+    transform: translate(-50%, -50%) scaleY(-1);
+  }
+}
+.text-container__text {
+  font-size: 85px;
+  color: tomato;
+  opacity: 0;
+  animation: flowerOpacity 1s forwards 5s;
+}
+@keyframes flowerOpacity {
+  100% {
+    opacity: 1;
+  }
+}/*# sourceMappingURL=style.css.map */

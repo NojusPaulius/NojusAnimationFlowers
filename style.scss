@@ -1,0 +1,418 @@
+
+@mixin flower-stem (){
+    position: absolute;
+    background-color: green;
+    height: 0px;
+    bottom: 0;
+    width: 25px;
+} 
+
+@mixin flower-leaf(){
+    position: absolute;
+    height: 25px;
+    width: 50px;
+    border-radius: 90px 0;
+    opacity: 0;
+    right: 38px;
+    top: 35%;
+    background-color: green;
+    animation: flowerOpacity 3s forwards;
+    animation-delay: 3s;
+}
+
+@mixin flower-head(){
+    position: absolute;
+    height: 80px;
+    width: 80px;
+    border-radius: 90px;
+    transform: translateY(10px);
+    background-color: yellow;
+    border: 1px solid rgb(75, 74, 19);
+    z-index: 2;
+
+
+
+}
+
+@mixin flower-petal($translateX, $translateY, $rotate, $colorPrimary, $colorSecondary){
+    position: absolute;
+    height: 80px;
+    width: 120px;
+    border-radius: 90px 0px;
+    background: linear-gradient(to bottom, $colorPrimary, $colorSecondary);
+    border: 2px groove rgb(199, 127, 127);
+    transform: translate($translateX, $translateY) rotate($rotate);
+}
+
+
+//mixins
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    position: relative;
+    height: 100vh;
+    background-color: rgb(0, 0, 0);
+    animation: backgroundColor 10s forwards;
+
+    @keyframes backgroundColor{
+        100% {
+            background-color: aqua;
+        }
+    }
+
+    
+}
+
+
+.sun{
+    position: absolute;
+    border-radius: 90px;
+    width: 150px;
+    height: 150px;
+    top: 300px;
+    left: -200px;
+    background-color: yellow;
+    animation: sunRise 3s forwards linear, sunPulse 3s infinite;
+
+    @keyframes sunPulse{
+        50%{
+            transform: scale(1.1, 1.1);
+        }
+    }
+
+    @keyframes sunRise{
+
+        50%{ 
+            top: 100px;
+            left: 0;
+        }
+        100%{
+            top: 50px;
+            left: 80px;
+        }
+    }
+}
+
+
+
+
+.flower-right{
+    position: absolute;
+    height: 600px;
+    width: 200px;
+    bottom: 0;
+    right: 15%;
+    display: flex;
+    flex-direction: column-reverse;
+    
+
+
+    &__stem{
+        position: relative;
+        display: flex;
+        justify-content: center;
+        height: 500px;
+        
+
+        &-stem{
+            @include flower-stem();
+        animation: flowerGrowRight 5s forwards;
+
+        @keyframes flowerGrowRight{
+            100%{height: 500px}
+            
+        }
+        }
+
+        &-leaf{
+            @include flower-leaf();
+    
+        }
+    }
+    
+
+
+
+    &__head{
+        height: 50px;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        opacity: 0;
+        animation: flowerOpacity 1s forwards, flowerMoving 3s infinite;
+        animation-delay: 5s;
+
+
+        @keyframes flowerOpacity{
+            100%{
+                opacity: 1;
+            }
+        }
+
+        @keyframes flowerMoving{
+            50%{transform: rotate(0,5)}
+        }
+
+        &-center{
+            @include flower-head();
+        }
+        
+        &-first-petal{
+            @include flower-petal(50px, -25px, 0deg, #fffdef, #c50000);
+
+           
+        }
+
+        &-second-petal{
+           @include flower-petal(-50px, -25px, 60deg, #fffdef, #c50000);
+        }
+
+        &-third-petal{
+            @include flower-petal(0px, -50px, 120deg, #fffdef, #c50000);
+           
+        }
+
+        &-fourth-petal{
+            @include flower-petal(-50px, 40px, 180deg, #fffdef, #c50000)
+            
+        }
+
+        &-fifth-petal{
+            @include flower-petal(50px, 40px, 240deg, #fffdef, #c50000)
+           
+        }
+
+        &-sixth-petal{
+            @include flower-petal(0px, 50px, 300deg, #fffdef, #c50000)
+            
+        }
+    }
+
+}
+
+
+.flower-center{
+    position: absolute;
+    height: 400px;
+    width: 200px;
+    bottom: 0;
+    right: 50%;
+    display: flex;
+    flex-direction: column-reverse;
+    
+
+
+    &__stem{
+        position: relative;
+        display: flex;
+        justify-content: center;
+        height: 350px;
+        
+
+        &-stem{
+            @include flower-stem();
+        animation: flowerGrowCenter 5s forwards;
+
+        @keyframes flowerGrowCenter{
+            100%{height: 350px}
+            
+        }
+        }
+
+        &-leaf{
+            @include flower-leaf();
+    
+        }
+    }
+    
+
+
+
+    &__head{
+        height: 50px;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        opacity: 0;
+        animation: flowerOpacity 1s forwards, flowerMoving 3s infinite;
+        animation-delay: 5s;
+
+
+        @keyframes flowerOpacity{
+            100%{
+                opacity: 1;
+            }
+        }
+
+        @keyframes flowerMoving{
+            50%{transform: rotate(0,5)}
+        }
+
+        &-center{
+            @include flower-head();
+        }
+        
+        &-first-petal{
+            @include flower-petal(50px, -25px, 0deg, #5e227f, #d9b26e);
+
+           
+        }
+
+        &-second-petal{
+           @include flower-petal(-50px, -25px, 60deg, #5e227f, #d9b26e);
+        }
+
+        &-third-petal{
+            @include flower-petal(0px, -50px, 120deg, #5e227f, #d9b26e);
+           
+        }
+
+        &-fourth-petal{
+            @include flower-petal(-50px, 40px, 180deg, #5e227f, #d9b26e)
+            
+        }
+
+        &-fifth-petal{
+            @include flower-petal(50px, 40px, 240deg, #5e227f, #d9b26e)
+           
+        }
+
+        &-sixth-petal{
+            @include flower-petal(0px, 50px, 300deg, #5e227f, #d9b26e)
+            
+        }
+    }
+
+}
+
+.flower-left{
+    position: absolute;
+    height: 400px;
+    width: 200px;
+    bottom: 0;
+    right: 75%;
+    display: flex;
+    flex-direction: column-reverse;
+    
+
+
+    &__stem{
+        position: relative;
+        display: flex;
+        justify-content: center;
+        height: 300px;
+        
+
+        &-stem{
+            @include flower-stem();
+        animation: flowerGrowLeft 5s forwards;
+
+        @keyframes flowerGrowLeft{
+            100%{height: 250px}
+            
+        }
+        }
+
+        &-leaf{
+            @include flower-leaf();
+            transform: rotateX(180deg) translate(-70px);
+
+    
+        }
+    }
+    
+
+
+
+    &__head{
+        height: 50px;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        opacity: 0;
+        animation: flowerOpacity 1s forwards, flowerMoving 3s infinite;
+        animation-delay: 5s;
+
+
+        @keyframes flowerOpacity{
+            100%{
+                opacity: 1;
+            }
+        }
+
+        @keyframes flowerMoving{
+            50%{transform: rotate(0,5)}
+        }
+
+        &-center{
+            @include flower-head();
+        }
+        
+        &-first-petal{
+            @include flower-petal(50px, -25px, 0deg, #20716a, #cbf078);
+
+           
+        }
+
+        &-second-petal{
+           @include flower-petal(-50px, -25px, 60deg, #20716a, #cbf078);
+        }
+
+        &-third-petal{
+            @include flower-petal(0px, -50px, 120deg, #20716a, #cbf078);
+           
+        }
+
+        &-fourth-petal{
+            @include flower-petal(-50px, 40px, 180deg, #20716a, #cbf078)
+            
+        }
+
+        &-fifth-petal{
+            @include flower-petal(50px, 40px, 240deg, #20716a, #cbf078)
+           
+        }
+
+        &-sixth-petal{
+            @include flower-petal(0px, 50px, 300deg, #20716a, #cbf078)
+            
+        }
+    }
+
+}
+
+.text-container{
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation:textTransform 4s forwards 7s;
+
+    @keyframes textTransform{
+        50%{
+            transform: translate(-50%, -50%) scaleY(-1);
+        }
+    }
+
+
+     &__text{
+        font-size: 85px;
+        color: tomato;
+        opacity: 0;
+        animation: flowerOpacity 1s forwards 5s;
+
+        @keyframes flowerOpacity{
+            100% {opacity: 1;}
+        }
+        }
+  }
+
+
+
+
+
